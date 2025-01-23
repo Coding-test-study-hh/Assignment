@@ -37,11 +37,15 @@ public class BJ13300 {
         for(int i=0; i<arr.length; i++){
             for(int j=0; j <arr[0].length; j++){
                 int value = arr[i][j];
+                // 그냥 K % 로
                 if(value > 0 && value <=K){
                     cnt ++;
+
                 }else if(value > K){
                     cnt += (value/K) + 1;
                 }
+                // value가 K 로 나눠 떨어질 경우
+                // value % K == 0
             }
         }
         System.out.println(cnt);
