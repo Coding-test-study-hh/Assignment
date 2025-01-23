@@ -14,6 +14,7 @@
     반례.
     669  정답:2, 내 답:1
 */
+// 개선. 더 좋은 방법이 있을 것 같다.
 
 package week2;
 import java.util.Scanner;
