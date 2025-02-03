@@ -34,6 +34,17 @@ public class BJ13300 {
         for(int i=0; i<arr.length; i++){
             for(int j=0; j <arr[0].length; j++){
                 int value = arr[i][j];
+<<<<<<< HEAD
+                // 그냥 K % 로
+                if(value > 0 && value <=K){
+                    cnt ++;
+
+                }else if(value > K){
+                    cnt += (value/K) + 1;
+                }
+                // value가 K 로 나눠 떨어질 경우
+                // value % K == 0
+=======
                 // 해결.
                 cnt += value / K; // 몫만큼 방 추가
                 if (value % K != 0) { // 나머지가 있으면 방 하나 추가
@@ -45,6 +56,7 @@ public class BJ13300 {
 //                }else if(value > K && value%K != 0){
 //                    cnt += (value/K) + 1;
 //                }
+>>>>>>> 7086bf10386366b84942e9b4605ed28194b08275
             }
         }
         System.out.println(cnt);
