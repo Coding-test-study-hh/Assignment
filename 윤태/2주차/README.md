@@ -9,25 +9,11 @@
    해결: int 대신 long 사용, 전체 순회회 대신 에라토스테네스의 체 활용
    <br><br>
 
-2. [1074-Z](https://www.acmicpc.net/problem/1074)
+2. [13300-방 배정](https://www.acmicpc.net/problem/13300)
    <br>
+   처음 접근: 변수에 각 인원수를 담아 계산
    <br><br>
+   오답 이유: 시간 내에 풀지 못함
    <br><br>
-   <br><br>
-
-3. [1978-소수 찾기기](https://www.acmicpc.net/problem/1978)
-   <br>
-   <br><br>
-   <br><br>
-   <br><br>
-
-4. [10610-30](https://www.acmicpc.net/problem/10610)
-   <br>
-   <br><br>
-   <br><br>
-   <br><br>
-5. [11729-하노이 탑 이동 순서](https://www.acmicpc.net/problem/11729)
-   <br>
-   <br><br>
-   <br><br>
+   해결: 각 변수에 담는 것이 아니라 배열 사용
    <br><br>

@@ -1,75 +1,45 @@
-import java.util.Map;
-import java.util.HashMap;
+// 입력 : String, 출력 : String
+// 계산 : 주어진 s의 각 문자를 index만큼 이동 시킨다(ascii)
+// 제약조건 : 1. skip에 있는 있는 알파벳은 건너뛴다. 2. z를 넘어갈 경우 다시 a로 돌아간다.
+// 목표 : 1. 입력값 처리. 2. 제약조건 처리
+// 자료구조 생각하기 : Set으로 skip 문자열 처리.
+import java.util.Set;
+import java.util.HashSet;
 
-class False {
-    public String solution(String s, String skip, int index) {
-        String answer = "";
-        Map<Integer, Boolean> skipMap = new HashMap<>();
-        Map<Integer, Character> askiiMap = new HashMap<>();
-        
-        for (int i = 0; i < skip.length(); i++) {
-            skipMap.put((int) skip.charAt(i), false);
-        }
-        
-        for (int i = 0; i < 25 - skip.length(); i++) {
-            if (skipMap.get(97 + i) == null || skipMap.get(97 + i) != false) {
-                askiiMap.put(i+97, (char)(i+97));   
-            }
-        }
-        
-        System.out.println(askiiMap);
-        
-        int key = 0;
-        for (int i = 0; i < s.length(); i++) {
-            
-            if (skipMap.get(s.charAt(i)) == null) {
-                key = s.charAt(i) + index;
-            } else {
-                key = s.charAt(i) + index+1;
-            }
-            
-            
-            System.out.println(key);
-            
-            answer += askiiMap.get(s.charAt(i));
-        }
-        
-        return answer;
-    }
-}
-
-import java.util.*;
-// 주어진 s에서 skip의 문자들을 제외하고 index 값 만큼, 각 알파벳을 뒤로 미룬다.
-// z를 넘어가면 a로 돌아온다.
-// 97~122
 class Solution {
     public String solution(String s, String skip, int index) {
+        // String 입출력이 빈번하므로 answer를 StringBuilder로 변경
         StringBuilder answer = new StringBuilder();
         Set<Character> skipSet = new HashSet<>();
+        System.out.println(skip);
         
-        // skip 문자들을 Set에 저장
+        // skip문자열 Set으로 구조화
         for (char c : skip.toCharArray()) {
             skipSet.add(c);
         }
         
-        // 각 문자를 index만큼 뒤로 이동시키며 결과 문자열 생성
+        // 문자열 이동 로직 테스트
         for (char c : s.toCharArray()) {
-            int count = 0;  // 이동한 횟수
             char current = c;
+            int count = 0;
+            
             
             while (count < index) {
-                current++; // 다음 문자로 이동
+                current++; // current는 계속 이동해야 하므로 while 구조를 사용.
+                
+                // current가 'z'를 넘어서면 'a'를 대입하고 순환시킨다.
                 if (current > 'z') {
-                    current = 'a'; // z를 넘어가면 a로 순환
+                    current = 'a';
                 }
+                
+                // skip 문자에 current가 포함되어 있지 않은 경우에만 count
+                // 결국 skip 문자는 건너뛰는 효과
                 if (!skipSet.contains(current)) {
-                    count++; // skip되지 않는 문자만 카운트
+                    count++;
                 }
             }
-            
-            answer.append(current); // 변환된 문자 추가
+            answer.append(current);
         }
-        
         return answer.toString();
     }
 }
