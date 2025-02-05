@@ -17,16 +17,20 @@ package week3;
    접근 방식 1. 배열 사용    => 실패. 시간초과
         [ , a,  , b,  , c,  , d,  ] 커서 위치를 포함한 공간을 확보한 배열을 생성해서 로직대로 움직이기
 
-   접근 방식 2. 연결 리스트 사용
+   접근 방식 2. 스택으로 접근
+
+   접근 방식 3.
 
 
  */
 
+/*
+    참고. https://mygumi.tistory.com/62
+ */
 
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class BJ1406 {
+public class BJ1406ARRAY {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -41,7 +45,7 @@ public class BJ1406 {
         }
 
         int M = sc.nextInt();   // 명령어 개수
-        System.out.println("명령어 개수는: " + M);
+//        System.out.println("명령어 개수는: " + M);
 
         int cursor = charArr.length-1;     // 초기에 커서는 맨 뒤에 위치
         sc.nextLine();
