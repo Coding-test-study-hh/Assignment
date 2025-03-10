@@ -19,6 +19,15 @@ public class P10814 {
 
         members.sort(Comparator.comparingInt(m -> Integer.parseInt(m[0])));
 
+        /*
+        이 두 코드도 동일하게 정렬됨
+        members.sort((a, b) -> Integer.parseInt(a[0]) - Integer.parseInt(b[0]));
+        members.sort((a, b) -> Integer.compare(Integer.parseInt(a[0]), Integer.parseInt(b[0])));
+
+        하지만 직접 뺄셈을 사용하면 오버플로우의 위험이 있음.
+        Integer.compare는 뺄셈하지 않고 크기를 비교하여 -1, 0, 1을 반환하므로 오버플로우의 위험이 없음
+        */
+
         StringBuilder sb = new StringBuilder();
 
         for (String[] member : members) {
@@ -27,6 +36,8 @@ public class P10814 {
 
         System.out.println(sb.toString());
     }
+
+    //////////////////// 시간적으로 조금 더 효율적인 방안
 
     static class Member {
         int age;            // 나이
